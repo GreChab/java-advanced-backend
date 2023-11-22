@@ -38,7 +38,7 @@ public class Application {
                 .filter(Service::isPayableUser)
                 .forEach(user -> System.out.println("com.epam.dto.User: " + user.getName() + " " + user.getSurname() + " is over 18 years old"));
 
-        service.getSubscriptionByBankCardNumber("111").orElseThrow(() -> new NoSuchSubscriptionException("com.epam.dto.Subscription for this card does not exists"));
+        service.getSubscriptionByBankCardNumber("111").orElseThrow(() -> new NoSuchSubscriptionException("Subscription for this card does not exists"));
 
         Predicate<Subscription> isSubscriptionAfter2010 = subscription -> subscription.getStartDate().getYear() > 2010;
 

@@ -8,6 +8,7 @@ import com.epam.service.Service;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Predicate;
@@ -30,7 +31,7 @@ public class ServiceImpl implements Service {
 
     @Override
     public List<User> getAllUsers() {
-        return users;
+        return Collections.unmodifiableList(users);
     }
 
     @Override
@@ -41,11 +42,10 @@ public class ServiceImpl implements Service {
     @Override
     public double getAverageUsersAge() {
         var allUsers = getAllUsers();
-        var sumOfAge = allUsers.stream()
-                .map(user -> ChronoUnit.YEARS.between(user.getBirthday(), LocalDate.now()))
-                .mapToLong(Long::valueOf)
-                .sum();
-        return (double) sumOfAge / allUsers.size();
+        var averageOfAge = allUsers.stream()
+                .mapToLong(user -> ChronoUnit.YEARS.between(user.getBirthday(), LocalDate.now()))
+                .average();
+        return averageOfAge.orElseThrow();
     }
 
     @Override
