@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>java-advanced-backend</artifactId>
+    <groupId>com.epam</groupId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Java Advanced Backend Core</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>application</module>
+        <module>jmp-bank-api</module>
+        <module>jmp-cloud-bank-impl</module>
+        <module>jmp-cloud-service-impl</module>
+        <module>jmp-dto</module>
+        <module>jmp-service-api</module>
+    </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>18</source>
+                    <target>18</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
